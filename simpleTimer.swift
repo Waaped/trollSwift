@@ -12,6 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    var player: AVAudioPlayer!
     @IBOutlet weak var TimeLabel: UILabel!
     
     @IBOutlet weak var progressBar: UIProgressView!
@@ -59,27 +60,24 @@ class ViewController: UIViewController {
         } else {
                        Timer.invalidate()
                     self.TimeLabel.text = "Done"
+            self.playSound()
                  
                    
         }
                }
     }
-        //NStimer replaced with timer
-        //My stack overflow timer doesn't use Objective C selectors, so i don't need to call any @obj
-        
-        
-//        print(result)
-//
-//        timerActive()
+       
         
         
     
 
-   
-//
-//    func timerActive (){
-//
-//
-//    }
+
+   func playSound() {
+       
+       let url = Bundle.main.url(forResource:"alarm_sound", withExtension: "mp3")
+       player = try! AVAudioPlayer(contentsOf: url!)
+       player.play()
+    
+    }
     
 }
