@@ -14,19 +14,25 @@ class ViewController: UIViewController {
     let eggTimes = ["Soft":5,"Medium":7,"Hard":12]
 
     
-    
+    var timer = Timer()
     
     
     @IBAction func hardnessPressed(_ sender: UIButton) {
         
-        let hardness = sender.currentTitle! //Have to remove optionals to create string
+        timer.invalidate()
         
-      //Play with user input later converting hours, minutes to seconds, and create progress bar etc. 
+        //Invalidates the timer, stops timer from running at the same time as over timer everytime we press a button
+        
+        
+        let hardness = sender.currentTitle!
 
-        let result = eggTimes[hardness]!*60 //Again String!
+        let result = eggTimes[hardness]!*60
         
         var secondsRemaining = result
-               Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
+              
+        
+    
+    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (Timer) in
                    if secondsRemaining > 0 {
                        print ("\(secondsRemaining) seconds")
                        secondsRemaining -= 1
@@ -34,8 +40,10 @@ class ViewController: UIViewController {
                        Timer.invalidate()
                    }
                }
-        // NStimer replaced with timer
-        // My timer doesn't use Objective C selectors, so i don't need to call any @obj
+    }
+        //NStimer replaced with timer
+        //My stack overflow timer doesn't use Objective C selectors, so i don't need to call any @obj
+        
         
 //        print(result)
 //
