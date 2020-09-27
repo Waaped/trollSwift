@@ -1,0 +1,18 @@
+Git guide
+
+
+Quick refresh
+
+Git branch //Lets you see which branch you are in
+Git checkout -b this-is-a-new-branch //You create a new branch, and get transported into it
+Git checkout master —you get transported back to the main branch
+Git checkout this-is-a-new-branch //Back to the test branch
+Git checkout master
+Git merge test-branch
+Git reset HEAD~1 back to previous commit, but files are left unchanged, just unstated
+
+Git log //Will give you the commit ID so you can reset the entire document to that snapshotted state, latest from top
+to bottom. Copy the commit ID you want to duplicate and hit reset.
+
+Git reset —hard 009493432fadwfjadf23r4jfqrfo2 
+
